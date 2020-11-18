@@ -1,3 +1,6 @@
+#[cfg(test)]
+mod tests;
+
 mod implements;
 
 /// Trait for equality comparisons that are [approximately equal](https://en.wikipedia.org/wiki/Approximation)
