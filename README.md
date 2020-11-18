@@ -10,7 +10,7 @@ Define
 ## Contributing
 Any and all PRs are welcome.
 
-###### Acknowledgement
+## Acknowledgement
 The ApproxEq crate is what you might call a joke.
 
 Much of the documentation is an adaptation of rust-lang's `std::cmp::PartialEq` trait documentation.
