@@ -1,10 +1,10 @@
 use super::*;
 
-macro_rules! int_test {
+macro_rules! test {
     ($type1:ident, $type2:ident) => {{
-        let a: $type1 = 5;
-        let b: $type2 = 3;
-        let c: $type2 = 1;
+        let a = 5 as $type1;
+        let b = 3 as $type2;
+        let c = 1 as $type2;
         assert!(a.aeq(&b));
         assert!(a.nae(&c));
     }};
@@ -14,18 +14,46 @@ macro_rules! int_tests {
     ($type:ident) => {
         #[test]
         fn $type() {
-            int_test!($type, u8);
-            int_test!($type, u16);
-            int_test!($type, u32);
-            int_test!($type, u64);
-            int_test!($type, u128);
-            int_test!($type, usize);
-            int_test!($type, i8);
-            int_test!($type, i16);
-            int_test!($type, i32);
-            int_test!($type, i64);
-            int_test!($type, i128);
-            int_test!($type, isize);
+            test!($type, u8);
+            test!($type, u16);
+            test!($type, u32);
+            test!($type, u64);
+            test!($type, u128);
+            test!($type, usize);
+
+            test!($type, i8);
+            test!($type, i16);
+            test!($type, i32);
+            test!($type, i64);
+            test!($type, i128);
+            test!($type, isize);
+
+            test!($type, f32);
+            test!($type, f64);
+        }
+    };
+}
+
+macro_rules! float_tests {
+    ($type:ident) => {
+        #[test]
+        fn $type() {
+            test!($type, u8);
+            test!($type, u16);
+            test!($type, u32);
+            test!($type, u64);
+            test!($type, u128);
+            test!($type, usize);
+
+            test!($type, i8);
+            test!($type, i16);
+            test!($type, i32);
+            test!($type, i64);
+            test!($type, i128);
+            test!($type, isize);
+
+            test!($type, f32);
+            test!($type, f64);
         }
     };
 }
@@ -45,3 +73,6 @@ int_tests!(i32);
 int_tests!(i64);
 int_tests!(i128);
 int_tests!(isize);
+
+float_tests!(f32);
+float_tests!(f64);
