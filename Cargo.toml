@@ -1,0 +1,10 @@
+[package]
+name = "approxeq"
+version = "0.1.0"
+authors = ["mib <mib@mib.dev>"]
+edition = "2018"
+license = "MIT"
+description = "A trait for approximate equality of types"
+repository = "https://github.com/mibmo/approxeq"
+keywords = ["equality", "joke"]
+categories = ["mathematics"]
