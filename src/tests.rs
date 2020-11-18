@@ -10,7 +10,7 @@ macro_rules! test {
     }};
 }
 
-macro_rules! int_tests {
+macro_rules! gen_tests {
     ($type:ident) => {
         #[test]
         fn $type() {
@@ -34,45 +34,19 @@ macro_rules! int_tests {
     };
 }
 
-macro_rules! float_tests {
-    ($type:ident) => {
-        #[test]
-        fn $type() {
-            test!($type, u8);
-            test!($type, u16);
-            test!($type, u32);
-            test!($type, u64);
-            test!($type, u128);
-            test!($type, usize);
+gen_tests!(u8);
+gen_tests!(u16);
+gen_tests!(u32);
+gen_tests!(u64);
+gen_tests!(u128);
+gen_tests!(usize);
 
-            test!($type, i8);
-            test!($type, i16);
-            test!($type, i32);
-            test!($type, i64);
-            test!($type, i128);
-            test!($type, isize);
+gen_tests!(i8);
+gen_tests!(i16);
+gen_tests!(i32);
+gen_tests!(i64);
+gen_tests!(i128);
+gen_tests!(isize);
 
-            test!($type, f32);
-            test!($type, f64);
-        }
-    };
-}
-
-// tests
-
-int_tests!(u8);
-int_tests!(u16);
-int_tests!(u32);
-int_tests!(u64);
-int_tests!(u128);
-int_tests!(usize);
-
-int_tests!(i8);
-int_tests!(i16);
-int_tests!(i32);
-int_tests!(i64);
-int_tests!(i128);
-int_tests!(isize);
-
-float_tests!(f32);
-float_tests!(f64);
+gen_tests!(f32);
+gen_tests!(f64);
