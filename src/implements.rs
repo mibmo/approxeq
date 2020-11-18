@@ -28,12 +28,16 @@ macro_rules! approxeq_impl_ints {
         approxeq_impl_abs!($type, i64);
         approxeq_impl_abs!($type, i128);
         approxeq_impl_abs!($type, isize);
+
         approxeq_impl_abs!($type, u8);
         approxeq_impl_abs!($type, u16);
         approxeq_impl_abs!($type, u32);
         approxeq_impl_abs!($type, u64);
         approxeq_impl_abs!($type, u128);
         approxeq_impl_abs!($type, usize);
+
+        approxeq_impl_abs!($type, f32);
+        approxeq_impl_abs!($type, f64);
     }
 }
 
@@ -45,12 +49,23 @@ macro_rules! approxeq_impl_uints {
         approxeq_impl_no_abs!($type, i64);
         approxeq_impl_no_abs!($type, i128);
         approxeq_impl_no_abs!($type, isize);
+
         approxeq_impl_no_abs!($type, u8);
         approxeq_impl_no_abs!($type, u16);
         approxeq_impl_no_abs!($type, u32);
         approxeq_impl_no_abs!($type, u64);
         approxeq_impl_no_abs!($type, u128);
         approxeq_impl_no_abs!($type, usize);
+
+        approxeq_impl_no_abs!($type, f32);
+        approxeq_impl_no_abs!($type, f64);
+    }
+}
+
+macro_rules! approxeq_impl_floats {
+    ($type:ident) => {
+        approxeq_impl_abs!(f32, $type);
+        approxeq_impl_abs!(f64, $type);
     }
 }
 
@@ -67,7 +82,19 @@ approxeq_impl_uints!(u64);
 approxeq_impl_uints!(u128);
 approxeq_impl_uints!(usize);
 
-approxeq_impl_abs!(f32, f32);
-approxeq_impl_abs!(f32, f64);
-approxeq_impl_abs!(f64, f32);
-approxeq_impl_abs!(f64, f64);
+approxeq_impl_floats!(i8);
+approxeq_impl_floats!(i16);
+approxeq_impl_floats!(i32);
+approxeq_impl_floats!(i64);
+approxeq_impl_floats!(i128);
+approxeq_impl_floats!(isize);
+
+approxeq_impl_floats!(u8);
+approxeq_impl_floats!(u16);
+approxeq_impl_floats!(u32);
+approxeq_impl_floats!(u64);
+approxeq_impl_floats!(u128);
+approxeq_impl_floats!(usize);
+
+approxeq_impl_floats!(f32);
+approxeq_impl_floats!(f64);
